@@ -22,14 +22,14 @@ func GetEnv() Env {
 	return env
 }
 
-func (env Env) ToShell(shell Shell) string {
+func (env Env) ToShell() string {
 	e := make(ShellExport)
 
 	for key, value := range env {
 		e.Add(key, value)
 	}
 
-	return shell.Export(e)
+	return Shell.Export(e)
 }
 
 func (env Env) Diff(other Env) *EnvDiff {

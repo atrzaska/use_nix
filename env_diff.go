@@ -56,7 +56,7 @@ func BuildEnvDiff(e1, e2 Env) *EnvDiff {
 	return diff
 }
 
-func (diff *EnvDiff) ToShell(shell Shell) string {
+func (diff *EnvDiff) ToShell() string {
 	e := make(ShellExport)
 
 	for key := range diff.Prev {
@@ -70,7 +70,7 @@ func (diff *EnvDiff) ToShell(shell Shell) string {
 		e.Add(key, value)
 	}
 
-	return shell.Export(e)
+	return Shell.Export(e)
 }
 
 func IgnoredEnv(key string) bool {

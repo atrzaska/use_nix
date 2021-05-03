@@ -41,6 +41,7 @@ func main() {
 		newEnv[key] = value
 	}
 
-	script := GetEnv().Diff(newEnv).ToShell(Bash)
+  //script := newEnv.ToShell()
+  script := GetEnv().Diff(newEnv).ToShell()
 	fmt.Println(script)
 }
