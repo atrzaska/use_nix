@@ -13,9 +13,9 @@ func execCommand() string {
 	cmd.Stdout = &stdoutBuffer
 	err := cmd.Run()
 
-  if err != nil {
-    panic("Command 'nix-shell --show-trace --run \"env\"' failed, make sure your nix setup is correct")
-  }
+	if err != nil {
+		panic("Command 'nix-shell --show-trace --run \"env\"' failed, make sure your nix setup is correct")
+	}
 
 	return stdoutBuffer.String()
 }
@@ -38,6 +38,6 @@ func main() {
 		newEnv[key] = value
 	}
 
-  script := GetEnv().Diff(newEnv).ToShell()
+	script := GetEnv().Diff(newEnv).ToShell()
 	fmt.Println(script)
 }
