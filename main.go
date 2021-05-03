@@ -7,18 +7,15 @@ import (
 	"strings"
 )
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
 func execCommand() string {
 	var stdoutBuffer bytes.Buffer
 	cmd := exec.Command("nix-shell", "--show-trace", "--run", "\"env\"")
 	cmd.Stdout = &stdoutBuffer
 	err := cmd.Run()
-	check(err)
+
+  if err != nil {
+    panic("Command 'nix-shell --show-trace --run \"env\"' failed, make sure your nix setup is correct")
+  }
 
 	return stdoutBuffer.String()
 }
