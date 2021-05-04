@@ -15,3 +15,7 @@ To load nix shell of your project make sure you have properly setup `nix` on you
     eval $(use_nix)
 
 This command will evaluate your `shell.nix` and setup your enviornment variables in your current shell.
+
+## License
+
+MIT
