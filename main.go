@@ -11,6 +11,7 @@ func execCommand() string {
 	var stdoutBuffer bytes.Buffer
 	cmd := exec.Command("nix-shell", "--show-trace", "--run", "\"env\"")
 	cmd.Stdout = &stdoutBuffer
+	cmd.Sterr = os.Stderr
 	err := cmd.Run()
 
 	if err != nil {
